@@ -1,0 +1,27 @@
+var index=0;
+var timer=null;
+$(".btnList li").click(function(){
+	debugger;
+	index=$(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".pic li").eq(index).fadeIn().siblings().fadeOut();
+});
+	$(".next").click(function(){
+		index ++;
+		if(index>4)index=0;
+		 tabshow();
+		});
+		$(".prev").click(function(){
+		index --;
+		if(index<0)index=4;
+		 tabshow();
+		});
+		function tabshow(){
+			$(".btnList li").eq(index).addClass("active").siblings().removeClass("active");
+	$(".pic li").eq(index).fadeIn().siblings().fadeOut();
+			}
+			timer=setInterval(function(){
+				index ++;
+		if(index>4)index=0;
+		 tabshow();
+				},4000);
